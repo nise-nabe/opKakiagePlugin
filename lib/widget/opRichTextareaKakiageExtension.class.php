@@ -37,7 +37,7 @@ class opRichTextareaKakiageExtension extends opWidgetFormRichTextareaOpenPNEExte
     $redmineIdProfile = Doctrine::getTable('MemberProfile')->retrieveByMemberIdAndProfileName($memberId, 'redmine_id');
 
     $issue = new opKakiageRedmineIssue($site ? $site : 'https://redmine.openpne.jp/');
-    $str = is_null($redmineIdProfile) ? 'please input redmine_url and redmine_id in profile page' : $issue->getIssuesToString($redmineIdProfile['value']);
+    $str = is_null($redmineIdProfile) ? 'please input redmine_url and redmine_id in profile page' : $issue->getIssuesToString($redmineIdProfile['value'], true);
     return $str;
   }
 }

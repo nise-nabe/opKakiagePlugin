@@ -42,12 +42,17 @@ class opKakiageRedmineIssue
     return $results;
   }
 
-  public function getIssuesToString($userId)
+  public function getIssuesToString($userId, $isTitleTruncate = false, $trancateLength = 20)
   {
     $issues = $this->getIssues($userId);
     $result = "";
     foreach ($issues as $issue)
     {
+      if ($isTitleTruncate)
+      {
+        $title = $issue['title'];
+        $issue['title'] = mb_substr($title, 0, $trancateLength).(mb_strlen($title)>$trancateLength?'...':'');
+      }
       $result .= implode(' ', $issue)."\n";
     }
 
