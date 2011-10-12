@@ -42,7 +42,7 @@ class opKakiageRedmineIssue
     return $results;
   }
 
-  public function getIssuesToString($userId, $isTitleTruncate = false, $trancateLength = 20)
+  public function getIssuesToString($userId, $isTitleTruncate = false, $truncateLength = 20)
   {
     $issues = $this->getIssues($userId);
     $result = "";
@@ -51,7 +51,7 @@ class opKakiageRedmineIssue
       if ($isTitleTruncate)
       {
         $title = $issue['title'];
-        $issue['title'] = mb_substr($title, 0, $trancateLength).(mb_strlen($title)>$trancateLength?'...':'');
+        $issue['title'] = mb_substr($title, 0, $truncateLength).(mb_strlen($title)>$truncateLength?'...':'');
       }
       $result .= implode(' ', $issue).'\n';
     }
