@@ -53,7 +53,7 @@ class opKakiageRedmineIssue
         $title = $issue['title'];
         $issue['title'] = mb_substr($title, 0, $trancateLength).(mb_strlen($title)>$trancateLength?'...':'');
       }
-      $result .= implode(' ', $issue)."\n";
+      $result .= implode(' ', $issue).'\n';
     }
 
     return $result;
