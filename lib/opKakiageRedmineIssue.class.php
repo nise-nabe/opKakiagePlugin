@@ -16,7 +16,7 @@ class opKakiageRedmineIssue
 
   public function setSite($site)
   {
-    $issue->site = $site;
+    $this->issue->site = $site;
   }
 
   public function getIssues($userId)
